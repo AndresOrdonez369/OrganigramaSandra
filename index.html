@@ -7,10 +7,11 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            font-size: 10px;
+            font-size: 20px;
             background-color: #f4f4f9;
             color: #333;
             padding: 40px;
+            margin: 0;
         }
         .organigrama {
             display: flex;
@@ -21,14 +22,15 @@
             display: flex;
             justify-content: center;
             align-items: flex-start;
+            flex-wrap: wrap;
             margin: 20px 0;
             position: relative;
+            gap: 15px;
         }
         .caja {
             padding: 15px 20px;
             text-align: center;
             position: relative;
-            margin: 0 15px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         /* Estilos por tipo */
@@ -43,7 +45,7 @@
             align-items: center;
         }
         .caja.asesoria {
-           color: black;
+            color: black;
             border: 2px solid #e0a800;
             border-radius: 50%;
             width: 120px;
@@ -96,9 +98,44 @@
         .nivel:first-child .caja::before {
             display: none;
         }
-        div{
+        div {
             margin: 10px;
-    
+        }
+
+        /* Estilo responsivo */
+        @media (max-width: 768px) {
+            body {
+                font-size: 16px;
+                padding: 20px;
+            }
+            .caja {
+                width: auto;
+                height: auto;
+                padding: 10px;
+                font-size: 14px;
+            }
+            .caja.asesoria,
+            .caja.dependencia {
+                width: 100px;
+                height: 100px;
+            }
+            .caja.linea {
+                width: 150px;
+                height: auto;
+            }
+            ul {
+                font-size: 0.8em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nivel {
+                flex-direction: column;
+                align-items: center;
+            }
+            .caja {
+                margin: 10px 0;
+            }
         }
     </style>
 </head>
@@ -107,16 +144,15 @@
         <!-- Gerencia -->
         <div class="nivel">
             <div class="caja dependencia">
-                
               <div>
                 <strong>Gerente</strong>
               </div>
-                 <ul>
-                    <li>Secretaria Ejecutiva</li>
-                    <li>Conductor</li>
-                    <li>Mensajero</li>
-                    <li>Auxiliar de Servicios Generales</li>
-                </ul>
+              <ul>
+                <li>Secretaria Ejecutiva</li>
+                <li>Conductor</li>
+                <li>Mensajero</li>
+                <li>Auxiliar de Servicios Generales</li>
+              </ul>
             </div>
         </div>
 
@@ -126,34 +162,34 @@
               <div>
                 <strong>Asesoría 1</strong>
               </div>
-                <ul>
-                    <li>Jefe de Oficina</li>
-                    <li>Asesor Profesional</li>
-                    <li>Técnico</li>
-                    <li>Auxiliar Administrativo</li>
-                </ul>
+              <ul>
+                <li>Jefe de Oficina</li>
+                <li>Asesor Profesional</li>
+                <li>Técnico</li>
+                <li>Auxiliar Administrativo</li>
+              </ul>
             </div>
             <div class="caja asesoria">
               <div>
                 <strong>Asesoría 2</strong>
               </div>
-                <ul>
-                    <li>Jefe de Oficina</li>
-                    <li>Asesor Profesional</li>
-                    <li>Técnico</li>
-                    <li>Auxiliar Administrativo</li>
-                </ul>
+              <ul>
+                <li>Jefe de Oficina</li>
+                <li>Asesor Profesional</li>
+                <li>Técnico</li>
+                <li>Auxiliar Administrativo</li>
+              </ul>
             </div>
             <div class="caja asesoria">
               <div>
                 <strong>Asesoría 3</strong>
               </div>
-                <ul>
-                    <li>Jefe de Oficina</li>
-                    <li>Asesor Profesional</li>
-                    <li>Técnico</li>
-                    <li>Auxiliar Administrativo</li>
-                </ul>
+              <ul>
+                <li>Jefe de Oficina</li>
+                <li>Asesor Profesional</li>
+                <li>Técnico</li>
+                <li>Auxiliar Administrativo</li>
+              </ul>
             </div>
         </div>
 
