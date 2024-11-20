@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organigrama Jerárquico</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 10px;
+            background-color: #f4f4f9;
+            color: #333;
+            padding: 40px;
+        }
+        .organigrama {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .nivel {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            margin: 20px 0;
+            position: relative;
+        }
+        .caja {
+            padding: 15px 20px;
+            text-align: center;
+            position: relative;
+            margin: 0 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        /* Estilos por tipo */
+        .caja.dependencia {
+            background-color: #28a745;
+            color: white;
+            border: 2px solid #1e7e34;
+            width: 120px;
+            height: 120px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .caja.asesoria {
+           color: black;
+            border: 2px solid #e0a800;
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 50px;
+        }
+        .caja.linea {
+            background-color: #dc3545;
+            color: white;
+            border: 2px solid #bd2130;
+            width: 200px;
+            height: 120px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+        li {
+            margin: 5px 0;
+        }
+        /* Conexiones */
+        .nivel::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: #ccc;
+            top: -10px;
+            left: 0;
+            z-index: -1;
+        }
+        .caja::before {
+            content: "";
+            position: absolute;
+            width: 2px;
+            height: 20px;
+            background-color: #ccc;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .nivel:first-child .caja::before {
+            display: none;
+        }
+        div{
+            margin: 10px;
+    
+        }
+    </style>
+</head>
+<body>
+    <div class="organigrama">
+        <!-- Gerencia -->
+        <div class="nivel">
+            <div class="caja dependencia">
+                
+              <div>
+                <strong>Gerente</strong>
+              </div>
+                 <ul>
+                    <li>Secretaria Ejecutiva</li>
+                    <li>Conductor</li>
+                    <li>Mensajero</li>
+                    <li>Auxiliar de Servicios Generales</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Asesorías -->
+        <div class="nivel">
+            <div class="caja asesoria">
+              <div>
+                <strong>Asesoría 1</strong>
+              </div>
+                <ul>
+                    <li>Jefe de Oficina</li>
+                    <li>Asesor Profesional</li>
+                    <li>Técnico</li>
+                    <li>Auxiliar Administrativo</li>
+                </ul>
+            </div>
+            <div class="caja asesoria">
+              <div>
+                <strong>Asesoría 2</strong>
+              </div>
+                <ul>
+                    <li>Jefe de Oficina</li>
+                    <li>Asesor Profesional</li>
+                    <li>Técnico</li>
+                    <li>Auxiliar Administrativo</li>
+                </ul>
+            </div>
+            <div class="caja asesoria">
+              <div>
+                <strong>Asesoría 3</strong>
+              </div>
+                <ul>
+                    <li>Jefe de Oficina</li>
+                    <li>Asesor Profesional</li>
+                    <li>Técnico</li>
+                    <li>Auxiliar Administrativo</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Subdirecciones -->
+        <div class="nivel">
+            <div class="caja linea">
+                <strong>Subdirección Técnica</strong>
+                <ul>
+                    <li>Atención al Usuario</li>
+                    <li>Almacén</li>
+                    <li>Suministros</li>
+                    <li>Archivo y Correspondencia</li>
+                    <li>Tesorería</li>
+                    <li>Presupuesto y Contabilidad</li>
+                    <li>Facturación y Estadística</li>
+                    <li>Servicios Generales</li>
+                </ul>
+            </div>
+            <div class="caja linea">
+                <strong>Subdirección Científica</strong>
+                <ul>
+                    <li>Urgencias</li>
+                    <li>Promoción y Prevención</li>
+                    <li>Servicios Ambulatorios</li>
+                    <li>Apoyo Diagnóstico y Terapéutico</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Personal Adicional -->
+        <div class="nivel">
+            <div class="caja dependencia">
+                <strong>Personal Adicional</strong>
+                <ul>
+                    <li>Médicos: 4</li>
+                    <li>Enfermera Jefe: 1</li>
+                    <li>Auxiliares de Enfermería: 4</li>
+                    <li>Radiólogo: 1</li>
+                    <li>Laboratorista: 1</li>
+                    <li>Conductores de Ambulancia: 2</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
